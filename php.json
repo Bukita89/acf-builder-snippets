@@ -1,7 +1,7 @@
 {
 	// Place your snippets for php here. Each snippet is defined under a snippet name and has a prefix, body and 
 	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${2:label}, ${2:another} for placeholders. Placeholders with the 
 	// same ids are connected.
 	// Example:
 	// "Print to console": {
@@ -14,50 +14,39 @@
 	// }
 	"addText": {
 		"prefix": ["add-text"],
-		"body": ["->addText('text_field', [",
-					"['label' => '${1:label}',",
-					"'instructions' => '${2:instructions}',",
+		"body": ["->addText('${1:field_title}', [",
+					"['label' => '${2:label}',",
+					"'instructions' => '${3:instructions}',",
 					"'wrapper' => ['width' => '','class' => '','id' => ''],",
-					"'prepend' => '${3:URL}',",
+					"'prepend' => '${4:URL}',",
 					"'append' => ''])"],
 		"description": "ACF Builder Text field"
 	},
 
 	"addTextarea": {
 		"prefix": ["add-textarea"],
-		"body": ["->addTextarea('textarea_field', [",
-			"'label' => '${1:label}',",
-			"'instructions' => '${2:instructions}',",
+		"body": ["->addTextarea('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
 			"'wrapper' => ['width' => '','class' => '','id' => ''],",
 			"'maxlength' => '',",
-			"'rows' => '${3:2}'])"],
+			"'rows' => '${4:2}'])"],
 		"description": "ACF Builder Textarea field"
-	},
-
-	"addWysiwyg": {
-		"prefix": ["add-editor"],
-		"body": [" ->addWysiwyg('wysiwyg_field', [",
-			"'label' => '${1:label}'",
-			"'instructions' => '${2:instructions}',",
-			"'wrapper' => ['width' => '','class' => '','id' => ''],",
-			"'toolbar' => '${3|full,basic|}',",
-			"'media_upload' => ${4|1,0|} ])"],
-		"description": "ACF Builder Wysiwyg field"
 	},
 
 	"addNumber": {
 		"prefix": ["add-number"],
-		"body": ["->addNumber('number_field', [",
-			"'label' => '${1:label}',",
-			"'instructions' => '${2:instructions}'])"],
+		"body": ["->addNumber('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}'])"],
 		"description": "ACF Builder Number field"
 	},
 
 	"addEmail": {
 		"prefix": ["add-email"],
-		"body": ["->addEmail('email_field', [",
-			"'label' => '${1:label}',",
-			"'instructions' => '${2:instructions}',",
+		"body": ["->addEmail('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
 			"'wrapper' => ['width' => ''],",
 			"'default_value' => '',",
 			"'placeholder' => ''])"],
@@ -66,9 +55,9 @@
 
 	"addUrl": {
 		"prefix": ["add-url"],
-		"body": ["->addUrl('url_field', [",
-			"'label' => '${1:label}',",
-			"'instructions' => '${2:instructions}',",
+		"body": ["->addUrl('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
 			"'wrapper' => ['width' => '','class' => '','id' => ''],",
 			"'placeholder' => ''])"],
 		"description": "ACF Builder URL field"
@@ -76,9 +65,9 @@
 
 	"addPassword": {
 		"prefix": ["add-password"],
-		"body": ["->addPassword('password_field', [",
-			"'label' => '${1:label}'",
-			"'instructions' => '${2:instructions}'",
+		"body": ["->addPassword('${1:field_title}', [",
+			"'label' => '${2:label}'",
+			"'instructions' => '${3:instructions}'",
 			"'wrapper' => ['width' => '','class' => '','id' => ''],",
 			"'placeholder' => '',",
 			"'prepend' => '',",
@@ -86,33 +75,73 @@
 		"description": "ACF Builder Password field"
 	},
 
+	//Content
+
+	"addWysiwyg": {
+		"prefix": ["add-editor"],
+		"body": [" ->addWysiwyg('${1:field_title}', [",
+			"'label' => '${2:label}'",
+			"'instructions' => '${3:instructions}',",
+			"'wrapper' => ['width' => '','class' => '','id' => ''],",
+			"'toolbar' => '${4|full,basic|}',",
+			"'media_upload' => ${5|1,0|} ])"],
+		"description": "ACF Builder Wysiwyg field"
+	},
+
 	"addImage": {
 		"prefix": ["add-image"],
-		"body": ["->addImage('image_field', [",
-			"'label' => '${1:label}',",
-			"'instructions' => '${2:instructions}',",
+		"body": ["->addImage('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
 			"'return_format' => 'array',",
-			"'preview_size' => '${3|thumbnail,medium,large|}',",
+			"'preview_size' => '${4|thumbnail,medium,large|}',",
 			"'mime_types' => 'png, svg, ico'])"],
 		"description": "ACF Builder Image field"
 	},
 
 	"addGallery": {
 		"prefix": ["add-gallery"],
-		"body": ["->addGallery('gallery_field', [",
-			"'label' => '${1:label}',",
-			"'instructions' => '${2:instructions}',",
+		"body": ["->addGallery('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
 			"'mime_types' => 'png, svg, ico'])"],
 		"description": "ACF Builder Gallery field"
 	},
 
+	"addOembed": {
+		"prefix": ["add-oembed"],
+		"body": [" ->addOembed('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
+			"'wrapper' => ['width' => '','class' => '','id' => ''],",
+			"'width' => '',",
+			"'height' => '' ])"],
+		"description": "ACF Builder Oembed field"
+	},
+
+	"addFile": {
+		"prefix": ["add-file"],
+		"body": [" ->addFile('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
+			"'wrapper' => ['width' => '','class' => '','id' => ''],",
+			"'return_format' => '${4|array,string,integer|}',",
+			"'library' => 'all',",
+			"'min_size' => '',",
+			"'max_size' => '',",
+			"'mime_types' => '' ])"],
+		"description": "ACF Builder File field"
+	},
+
+	//Choice Fields
+
 	"addSelect": {
 		"prefix": ["add-select"],
-		"body": ["->addSelect('select_field', [",
-			"'label' => '${1:label}',",
-			"'instructions' => '${2:instructions}',",
+		"body": ["->addSelect('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
 			"'default_value' => array(),",
-			"'allow_null' => ${3|0,1|},",
+			"'allow_null' => ${4|0,1|},",
 			"'multiple' => 0,",
 			"'ui' => 0,",
 			"'ajax' => 0,",
@@ -120,5 +149,190 @@
 			"'placeholder' => ''])"],
 		"description": "ACF Builder Choice/Select field"
 	},
+
+	"addCheckbox": {
+		"prefix": ["add-checkbox"],
+		"body": [" ->addCheckbox('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
+			"'wrapper' => ['width' => '','class' => '','id' => '',],",
+			"'choices' => [${4:value=>label}],",
+			"'return_format' => '${5|value,label,both|}'])"],
+		"description": "ACF Builder Checkbox field"
+	},
+
+	"addRadio": {
+		"prefix": ["add-radio"],
+		"body": ["->addRadio('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
+			"'wrapper' => ['width' => '','class' => '','id' => '',],",
+			"'choices' => [${4:value=>label}],",
+			"'return_format' => '${5|value,label,both|}'])"],
+		"description": "ACF Builder Radio field"
+	},
+
+	"addTrueFalse": {
+		"prefix": ["add-truefalse"],
+		"body": [" ->addTrueFalse('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
+			"'wrapper' => ['width' => '','class' => '','id' => '',],",
+			"'message' => '',",
+			"'default_value' => 0,",
+			"'ui' => 0,",
+			"'ui_on_text' => '',",
+			"'ui_off_text' => ''])"],
+		"description": "ACF Builder True/False field"
+	},
+
+	//Relational Fields
+
+	"addLink": {
+		"prefix": ["add-link"],
+		"body": [" ->addLink('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
+			"'wrapper' => ['width' => '','class' => '','id' => '',],",
+			"'return_format' => '${4|array,string|}'])"],
+		"description": "ACF Builder Link field"
+	},
+
+	"addPostObject": {
+		"prefix": ["add-postobject"],
+		"body": ["  ->addPostObject('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
+			"'wrapper' => ['width' => '','class' => '','id' => '',],",
+			"'post_type' => [${4:write post types}],",
+			"'taxonomy' => [${5:write taxonomy slugs}],",
+			"'multiple' => ${6|1,0|},",
+			"'return_format' => '${7|object,id|}',",
+			"'ui' => 1 ])"],
+		"description": "ACF Builder Post Object field"
+	},
+
+	"addPageLink": {
+		"prefix": ["add-pagelink"],
+		"body": ["->addPageLink('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
+			"'type' => 'page_link',",
+			"'wrapper' => ['width' => '','class' => '','id' => '',],",
+			"'post_type' => [${4:write post types}],",
+			"'taxonomy' => [${5:write taxonomy slugs}],",
+			"'allow_archives' => ${6|1,0|},",
+			"'multiple' => ${7|0,1|} ])"],
+		"description": "ACF Builder Page Link field"
+	},
+
+	"addRelationship": {
+		"prefix": ["add-relationship"],
+		"body": ["->addRelationship('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
+			"'wrapper' => ['width' => '','class' => '','id' => '',],",
+			"'post_type' => [${4:write post types}],",
+			"'taxonomy' => [${5:write taxonomy slugs}],",
+			"'filters' => [0 => 'search',1 => 'post_type',2 => 'taxonomy',],",
+			"'min' => '',",
+			"'max' => '',",
+			"'return_format' => '${6|object,id|}' ])"],
+		"description": "ACF Builder Relationship field"
+	},
+
+	"addTaxonomy": {
+		"prefix": ["add-taxonomy"],
+		"body": [" ->addTaxonomy('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
+			"'wrapper' => ['width' => '','class' => '','id' => '',],",
+			"'taxonomy' => '${4:category}',",
+			"'field_type' => '${5|checkbox,multi_select,radio,select|}',",
+			"'allow_null' => 0,",
+			"'add_term' => 1,",
+			"'save_terms' => 1,",
+			"'load_terms' => 1,",
+			"'return_format' => '${6|object,id|}',",
+			"'multiple' => 0 ])"],
+		"description": "ACF Builder Taxonomy field"
+	},
+
+	//Miscellaneous
+
+	"addGoogleMap": {
+		"prefix": ["add-googlemap"],
+		"body": [" ->addGoogleMap('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
+			"'wrapper' => ['width' => '','class' => '','id' => '',],",
+			"'center_lat' => '',",
+			"'center_lng' => '',",
+			"'zoom' => '',",
+			"'height' => '' ])"],
+		"description": "ACF Builder Google Map field"
+	},
+
+	"addDatePicker": {
+		"prefix": ["add-datepicker"],
+		"body": [" ->addDatePicker('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
+			"'wrapper' => ['width' => '','class' => '','id' => '',],",
+			"'display_format' => '${4:d/m/Y}',",
+			"'return_format' => '${5:d/m/Y}',",
+			"'first_day' => 1 ])"],
+		"description": "ACF Builder Date Picker field"
+	},
+
+	"addDateTimePicker": {
+		"prefix": ["add-datetimepicker"],
+		"body": [" ->addDateTimePicker('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
+			"'wrapper' => ['width' => '','class' => '','id' => '',]",
+			"'display_format' => '${4:d/m/Y}',",
+			"'return_format' => '${6:d/m/Y}',",
+			"'first_day' => 1 ])"],
+		"description": "ACF Builder Date Time Picker field"
+	},
+
+	"addTimePicker": {
+		"prefix": ["add-timepicker"],
+		"body": [" ->addTimePicker('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
+			"'wrapper' => ['width' => '','class' => '','id' => '',]",
+			"'display_format' => '${4:g:i a}',",
+			"'return_format' => '${6:g:i a}' ])"],
+		"description": "ACF Builder Time Picker field"
+	},
+
+	"addColorPicker": {
+		"prefix": ["add-colorpicker"],
+		"body": ["  ->addColorPicker('${1:field_title}', [",
+			"'label' => '${2:label}',",
+			"'instructions' => '${3:instructions}',",
+			"'wrapper' => ['width' => '','class' => '','id' => '',]",
+			"'default_value' => '${4:#000000}' ])"],
+		"description": "ACF Builder Color Picker field"
+	},
+
+	//Repeater
+
+	"addRepeater": {
+		"prefix": ["add-repeater"],
+		"body": [" ->addRepeater('${1:field_title}', [",
+			"'layout' => '${2|table,block,row|}',",
+			"'min' => 1,",
+			"'button_label' => '${3:Button Label}',",
+			"'wrapper' => ['width' => '','class' => '','id' => '',]",
+			"'collapsed'  => '${4:field_title}'])",
+			"${5:repeater_content_here}",
+			"->endRepeater()"],
+		"description": "ACF Builder Repeater field"
+	},
+	
+//Options&Components including needed
 
 }
