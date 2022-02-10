@@ -53,7 +53,7 @@
 			"'default_value' => '',",
 			"'tabs' => 'all',",
 			"'toolbar' => '${3|full,basic|}',",
-			"'media_upload' => $4|1,0|},",
+			"'media_upload' => ${4|1,0|},",
 			"'delay' => 0])"],
 		"description": "ACF Builder Wysiwyg field"
 	},
@@ -137,6 +137,47 @@
 			"'max_size' => '',",
 			"'mime_types' => ''])"],
 		"description": "ACF Builder Image field"
+	},
+
+	"addGallery": {
+		"prefix": ["add-gallery"],
+		"body": ["->addGallery('gallery_field', [",
+			"'label' => '${1:label}',",
+			"'instructions' => '${2:instructions}',",
+			"'required' => 0,",
+			"'conditional_logic' => 0,",
+			"'wrapper' => ['width' => '','class' => '','id' => ''],",
+			"'min' => '',",
+			"'max' => '',",
+			"'insert' => 'append'",
+			"'library' => 'all',",
+			"'min_width' => '',",
+			"'min_height' => '',",
+			"'min_size' => '',",
+			"'max_width' => '',",
+			"'max_height' => '',",
+			"'max_size' => '',",
+			"'mime_types' => ''])"],
+		"description": "ACF Builder Gallery field"
+	},
+
+	"addSelect": {
+		"prefix": ["add-select"],
+		"body": ["->addSelect('select_field', [",
+			"'label' => '${1:label}',",
+			"'instructions' => '${2:instructions}',",
+			"'required' => 0,",
+			"'conditional_logic' => 0,",
+			"'wrapper' => ['width' => '','class' => '','id' => '',],",
+			"'choices' => [${3:'key:value'}],",
+			"'default_value' => [],",
+			"'allow_null' => 0,",
+			"'multiple' => 0,",
+			"'ui' => 0,",
+			"'ajax' => 0,",
+			"'return_format' => 'value',",
+			"'placeholder' => ''])"],
+		"description": "ACF Builder Choice/Select field"
 	},
 
 }
