@@ -318,7 +318,7 @@
 		"description": "ACF Builder Color Picker field"
 	},
 
-	//Repeater
+	/*Repeater*/
 
 	"addRepeater": {
 		"prefix": ["add-repeater"],
@@ -332,7 +332,39 @@
 			"->endRepeater()"],
 		"description": "ACF Builder Repeater field"
 	},
-	
-//Options&Components including needed
+
+//Groups
+
+	"addFieldsBuilder": {
+		"prefix": ["add-fieldsbuilder"],
+		"body": ["${1:groupName} = new FieldsBuilder('${2:group_slug}', [",
+			"'position' => 'acf_after_title'",
+			"'title' => '${3:Group Title}',",
+		"]);",
+		"${1:$groupName}",
+			"${4:Group content here}",
+			"->setLocation('post_type', '==', '${5:associated_post_type}');",
+		"// Register Group",
+		"add_action('acf/init', function() use (${1:groupName}) {",
+			"acf_add_local_field_group(${1:groupName}->build());",
+		"});"],
+		"description": "Fields Builder"
+	},
+
+	//Common Options
+
+	"addOptions": {
+		"prefix": ["add-options"],
+		"body": ["->addFields(${1|HtmlAttributes,TextAlignmentOptions,ButtonDefaults|}::getFields())"],
+		"description": "Options"
+	},
+
+	//Conditional
+
+	"addConditional": {
+		"prefix": ["add-conditional"],
+		"body": ["->conditional('${1:key}', '==', '${2:value}')"],
+		"description": "Conditional"
+	},
 
 }
